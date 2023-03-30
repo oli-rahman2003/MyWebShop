@@ -2,6 +2,13 @@
 
 public class SeeWares : IWebShopState
 {
+    WebShop webShop;
+
+    public SeeWares(WebShop newWebshop) {
+        webShop = newWebshop;
+    }
+    private String CurrentCustomer = "karl";
+    
     public void option1() {
         Console.WriteLine("See All Wares");
     }
@@ -15,7 +22,6 @@ public class SeeWares : IWebShopState
         if (CurrentCustomer == null) {
             Console.WriteLine("Login");
         }
-
         Console.WriteLine("logout");
     }
 }

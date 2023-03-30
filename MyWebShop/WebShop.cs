@@ -2,28 +2,46 @@
 
 namespace MyWebShop;
 
-public class WebShop {
+public class WebShop
+{
+    IWebShopState homePage;
+    IWebShopState seeWares;
+    IWebShopState customerInfo;
+    IWebShopState login;
     
-    public IWebShopState webShopState { get; set; }
+    IWebShopState webShopState;
 
-    public WebShop(IWebShopState webShopState) {
-            this.webShopState = webShopState;
-        }
+    public WebShop() {
+        homePage = new HomePage(this);
+        seeWares = new SeeWares(this);
+        customerInfo = new CustomerInfo(this);
+        login = new Login(this);
 
-    public void SeeWares() {
+        webShopState = homePage;
+    }
+
+    public void setWebShopState(IWebShopState newWebShopState) {
+        webShopState = newWebShopState;
+    }
+    public void option1() {
         webShopState.option1();
     }
-    public void CustomerInfo() {
+    public void option2() {
         webShopState.option2();
     }
-    public void Login() {
+    public void option3() {
         webShopState.option3();
     }
     public void Option4() {
         webShopState.option4();
     }
 
+    public IWebShopState getHomePageState() { return homePage; }
+    public IWebShopState getSeeWaresState() { return seeWares; }
+    public IWebShopState getCustomerInfoState() { return customerInfo; }
+    public IWebShopState getLoginState() { return login; }
 
-        
-    
+
+
+
 }

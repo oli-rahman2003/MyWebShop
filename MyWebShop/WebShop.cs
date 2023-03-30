@@ -1,15 +1,29 @@
-﻿namespace MyWebShop;
+﻿using MyWebShop.WebShopStates;
 
-public class WebShop
-{
-    bool running = true;
-    private string WelcomeToTheWebshop = "Welcome to the WebShop!";
+namespace MyWebShop;
+
+public class WebShop {
     
-    public WebShop() {
+    public IWebShopState webShopState { get; set; }
+
+    public WebShop(IWebShopState webShopState) {
+            this.webShopState = webShopState;
+        }
+
+    public void SeeWares() {
+        webShopState.option1();
+    }
+    public void CustomerInfo() {
+        webShopState.option2();
+    }
+    public void Login() {
+        webShopState.option3();
+    }
+    public void Option4() {
+        webShopState.option4();
     }
 
-    public void Run() {
-        Console.WriteLine(WelcomeToTheWebshop);
+
         
-    }
+    
 }

@@ -2,9 +2,9 @@
 
 public class Login : IWebShopState
 {
-    WebShop webShop;
+    WebShopContext webShop;
 
-    public Login(WebShop newWebshop) {
+    public Login(WebShopContext newWebshop) {
         webShop = newWebshop;
     }
     public void option1() {

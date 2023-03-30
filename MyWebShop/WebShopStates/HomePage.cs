@@ -4,10 +4,10 @@ public class HomePage : IWebShopState {
     
     private String CurrentCustomer = "karl";
     
-    WebShop webShop;
+    WebShopContext webShop;
     
-    public HomePage (WebShop newWebshop) {
-        webShop = newWebshop;
+    public HomePage (WebShopContext newWebShop) {
+        webShop = newWebShop;
     }
     public void option1() {
         Console.WriteLine("See Wares");

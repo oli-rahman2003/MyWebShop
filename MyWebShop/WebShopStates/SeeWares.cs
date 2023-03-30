@@ -2,9 +2,9 @@
 
 public class SeeWares : IWebShopState
 {
-    WebShop webShop;
+    WebShopContext webShop;
 
-    public SeeWares(WebShop newWebshop) {
+    public SeeWares(WebShopContext newWebshop) {
         webShop = newWebshop;
     }
     private String CurrentCustomer = "karl";

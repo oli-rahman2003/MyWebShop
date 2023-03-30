@@ -4,9 +4,9 @@ public class CustomerInfo : IWebShopState
 {
     private string CurrentCustomer = "karl";
     
-    WebShop webShop;
+    WebShopContext webShop;
 
-    public CustomerInfo (WebShop newWebshop) {
+    public CustomerInfo (WebShopContext newWebshop) {
         webShop = newWebshop;
     }
 

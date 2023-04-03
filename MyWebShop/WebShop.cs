@@ -1,26 +1,32 @@
-﻿namespace MyWebShop;
+﻿using MyWebShop.Commands;
+
+namespace MyWebShop;
 
 public class WebShop
 {
     private bool running = true;
     
-    private int amountOfOptions = 3;
-    private int cursorIsAt = 1;
-
+    public int amountOfOptions = 3;
+    public int currentChoice = 1;
+    
     private string seeWares = "See wares";
     private string customerInfo = "Customer Info";
     private string login = "Login";
+    private string currentMenu = "HomePage";
     
-
+    string option1 = "See Wares";
+    string option2 = "Customer Info";
+    string option3 = "Login";
+    string option4 = "";
+    
     private Customer currentCustomer;
-    
 
     public void Run()
     {
-        //while (running)
-        {
-            WelcomeToTheWebshop();
+        WelcomeToTheWebshop();
 
+        while (running)
+        {
             WhatWouldYouLikeToDo();
 
             HomePageMenu();
@@ -36,10 +42,32 @@ public class WebShop
             LeftRightOkBackQuit();
 
             CustomerLoginStatus();
+
+            ClickToMoveLeftOrRight();
             
+            }
+        }
+
+    
+
+    private void ClickToMoveLeftOrRight()
+    {
+        var choice = GetUserInput();
+        
+        if (choice == "l" && currentChoice > 1) {
+            currentChoice--;
+        }
+
+        if (choice == "r" && currentChoice < amountOfOptions) {
+            currentChoice++;
         }
     }
 
+    private static string GetUserInput()
+    {
+        string choice = Console.ReadLine().ToLower();
+        return choice;
+    }
 
     private void CustomerLoginStatus() {
         if (currentCustomer != null) {
@@ -68,7 +96,7 @@ public class WebShop
     }
 
     private void InitiateCursor() {
-        for (int i = 1; i < cursorIsAt; i++) {
+        for (int i = 1; i < currentChoice; i++) {
             Console.Write("\t");
         }
     }
@@ -92,3 +120,12 @@ public class WebShop
     
     
 }
+
+//MOVE RIGHT COMMAND
+//IKeyboard keyboard = new WebShopReceiver();
+//MoveRightwards onCommand = new MoveRightwards(keyboard);
+//KeyboardKeysReceiver onPressed = new KeyboardKeysReceiver(onCommand);
+// string choice = Console.ReadLine().ToLower();
+//         
+//     if (choice == "r") {
+//     onPressed.press();

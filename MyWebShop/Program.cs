@@ -1,4 +1,5 @@
 ﻿using MyWebShop;
+using MyWebShop.Commands;
 using MyWebShop.WebShopStates;
 
 namespace MyWebShop
@@ -9,10 +10,19 @@ namespace MyWebShop
         {
             WebShop webShop = new WebShop();
             webShop.Run();
+            Console.ReadKey();
+
+            
 
         }
     }
 }
+// COMMAND TEST
+// IKeyboard keyboard = new WebShopReceiver();
+// MoveRightwards onCommand = new MoveRightwards(keyboard);
+// KeyboardKeysReceiver onPressed = new KeyboardKeysReceiver(onCommand);
+// onPressed.press();
+
 /*STATES TEST
 WebShopContext webShop = new WebShopContext();
 SeeWares seeWares = new SeeWares(new WebShopContext());

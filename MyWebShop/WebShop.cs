@@ -14,15 +14,17 @@ public class WebShop
     private string login = "Login";
     private string currentMenu = "HomePage";
     
-    string option1 = "See Wares";
-    string option2 = "Customer Info";
-    string option3 = "Login";
-    string option4 = "";
+    // string option1 = "See Wares";
+    // string option2 = "Customer Info";
+    // string option3 = "Login";
+    // string option4 = "";
     
     private Customer currentCustomer;
+    WebShopContext webShop = new WebShopContext();
 
     public void Run()
     {
+        LineBreak();
         WelcomeToTheWebshop();
 
         while (running)
@@ -44,15 +46,33 @@ public class WebShop
             CustomerLoginStatus();
 
             ClickToMoveLeftOrRight();
-            
-            }
+
+           // RetrieveStates();
+        }
+    }
+
+    private void RetrieveStates()
+    {
+        if (currentChoice == 1 && GetUserInput() == "ok")
+        {
+            webShop.option1();
         }
 
-    
+        if (currentChoice == 2 && GetUserInput() == "ok")
+        {
+            webShop.option2();
+        }
+
+        if (currentChoice == 3 && GetUserInput() == "ok")
+        {
+            webShop.option3();
+        }
+    }
+
 
     private void ClickToMoveLeftOrRight()
     {
-        var choice = GetUserInput();
+        string choice = GetUserInput();
         
         if (choice == "l" && currentChoice > 1) {
             currentChoice--;
